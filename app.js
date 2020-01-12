@@ -1,4 +1,3 @@
-//eyJpZCI6NjU1MTA4MTk0MzQyNzk3MzMzLCJlbWFpbCI6ImFzd3Jvb3QwMUBnbWFpbC5jb20ifQ.XfPTUw.VVfbKtwEUfbhVajYWZxT9YTuBZg//
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ayarlar = require('./config.json');
@@ -132,3 +131,20 @@ client.on('error', e => {
     console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
 client.login(ayarlar.token);
+
+
+// ANTİ SPAM SİSTEMİ !
+const antispam = require("discord-anti-spam-tr");
+//istediğiniz yere ekleyin bot.js de
+antispam(client, {
+  uyarmaSınırı: 4, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
+  banlamaSınırı: 7, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
+  aralık: 1000, // ms kullanıcılarda zaman miktarı, yasaklanmadan önce aralık değişkeninin maksimumunu gönderebilir.
+  uyarmaMesajı: "Spamı Durdur Yoksa Mutelerim.", // Uyarı mesajı, kullanıcıya hızlı gideceklerini belirten kullanıcıya gönderilir..
+  rolMesajı: "Spam için yasaklandı, başka biri var mı?", //Yasak mesaj, yasaklanmış kullanıcıyı ,Banlar
+  maxSpamUyarı: 8,//Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
+  maxSpamBan: 12, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
+  zaman: 7, // Spamdan sonraki zaman
+  rolİsimi: "spam-susturulmuş" // Spam Atan Kullanıcılar Verilecek Röl
+});
+
