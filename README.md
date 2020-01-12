@@ -1,5 +1,4 @@
 # NOVA BOT !
--
 - https://glitch.com/@Gorkem00
 - https://discord.gg/yFa5dNa
 - "Nova Bot" Dosyaları "Gorkem00" Adıyla Paylaşılmıştır .
